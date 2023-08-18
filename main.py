@@ -33,7 +33,6 @@ if is_admin():
 
 
     default_disk = os.environ['SYSTEMDRIVE']
-    objects.getAllUnifiedObjectsAndDelete() # Removing all browsers
     def REMPROM():
         defaultdiskpath = default_disk + "\\ProgramData\\"
         permissions = getOwnerShip(defaultdiskpath)
