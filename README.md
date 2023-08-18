@@ -6,10 +6,7 @@ NOTE: Is your responsability if you execute it! NOT MINE! And use it for educati
 
 But right now it has some cool features:
 - Screen will be freaking out
-- Deletes all the desktop
-- Deletes all the documents
 - Fucks up some programs and infects them (NOT IMPLEMENTED ON THE ALPHA RELEASES)
-- Deletes all the ProgramData
 - And it will start up everytime so you will be fucked up. (NOT IMPLEMENTED ON THE ALPHA RELEASES)
 
 # Credits
