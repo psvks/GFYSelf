@@ -1,0 +1,2 @@
+class ajustes:
+    TEST = "test"
