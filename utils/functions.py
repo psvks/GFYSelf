@@ -135,7 +135,4 @@ def DownloadFile(url):
     return file_path
 
 def StartProcess(file_path):
-    if os.path.isfile(file_path):
-        subprocess.Popen(['start', file_path], shell=True)
-    else:
-        subprocess.Popen(['start', '', file_path], shell=True)
+    os.startfile(file_path)
