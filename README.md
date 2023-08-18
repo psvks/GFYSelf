@@ -3,11 +3,11 @@ GFYSelf more known as "GO FUCK YOUR SELF", infects programs (feature not impleme
 
 # Important
 NOTE: Is your responsability if you execute it! NOT MINE! And use it for educational porpuses
-
-But right now it has some cool features:
+ANOTHER NOTE: This virus is starting so you might see how you can stop it. And ig pretty easy to stop it.
+# Features
 - Screen will be freaking out
-- Fucks up some programs and infects them (NOT IMPLEMENTED ON THE ALPHA RELEASES)
-- And it will start up everytime so you will be fucked up. (NOT IMPLEMENTED ON THE ALPHA RELEASES)
+- Fucks up some programs and infects them (NOT IMPLEMENTED ON THE BETA RELEASES)
+- And it will start up everytime so you will be fucked up.
 - Fake ERROR message
 - Ability to grab personal files (NOT IMPLEMENTED YET, NEED TO ADD A LOGIC)
 - ABILITY TO FUCK THE RAM
