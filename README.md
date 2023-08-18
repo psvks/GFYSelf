@@ -2,8 +2,8 @@ Hello there, this is GFYSelf, a simple virus made by me with full python code.
 GFYSelf more known as "GO FUCK YOUR SELF", infects programs (feature not implemented)
 
 # Important
-NOTE: Is your responsability if you execute it! NOT MINE! And use it for educational porpuses  
-ANOTHER NOTE: This virus is starting its development so you might see how you can stop it. And ig pretty easy to stop it.
+**NOTE: Is your responsability if you execute it! NOT MINE! And use it for educational porpuses  **
+**ANOTHER NOTE: This virus is starting its development so you might see how you can stop it. And ig pretty easy to stop it.**
 # Features
 - Screen will be freaking out
 - Fucks up some programs and infects them (NOT IMPLEMENTED ON THE BETA RELEASES)
