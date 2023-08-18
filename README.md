@@ -14,4 +14,5 @@ ANOTHER NOTE: This virus is starting so you might see how you can stop it. And i
 
 
 # Credits
-Thanks https://github.com/ShadowWhisperer for the microsoft-edge removal script (Witch soon will be a feature)
+Thanks https://github.com/ShadowWhisperer for the microsoft-edge removal script (Witch soon will be a feature)  
+**A helper [@OrEye](https://github.com/OrEye)! (Helps with coding.)**
