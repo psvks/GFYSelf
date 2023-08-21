@@ -11,7 +11,8 @@ from ctypes import c_ulong
 from ctypes import POINTER
 from ctypes import byref
 import urllib.request
-
+import zipfile
+import shutil
 
 def getDesktopPath():
     home = Path(os.environ['USERPROFILE'])
@@ -119,3 +120,14 @@ def StartProcess(file_path):
 def PowerShellRun(self, cmd):
     completed = subprocess.run(["powershell", "-Command", cmd], capture_output=True)
     return completed
+
+
+def ExtractZip(file_path, destination_path):
+    with zipfile.ZipFile(file_path, 'r') as zip_ref:
+        zip_ref.extractall(destination_path)
+
+    return destination_path
+
+
+def MoveFile(source_path, destination_path):
+    shutil.move(source_path, destination_path)
