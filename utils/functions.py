@@ -27,39 +27,24 @@ def getDocumentsPath():
     return str(documents_path)
 
 
-def getFolderOwner(folder_path):
-        """
-        Get the owner of a folder.
-
-        Args:
-            folder_path (str): The path to the folder.
-
-        Returns:
-            int: The user ID of the owner of the folder.
-        """
-        ownership = os.stat(folder_path).st_uid
-        return ownership
-
-
-
-# Function to set ownership of a folder
-def SetOwnership(path):
-    command = ['takeown', '/F', path]
-    try:
-        subprocess.run(command, check=True)
-        return True
-    except subprocess.CalledProcessError as e:
-        return str(e)
 
 def getOwnerShip(path):
-    command = ['icacls', path]  # Construct the command
-    try:
-        result = subprocess.run(command, capture_output=True, text=True, check=True)
-        output = result.stdout.strip()
-        return output
-    except subprocess.CalledProcessError as e:
-        return str(e)
+    powershell_executable = "powershell.exe"
+    folder_path = path
+
     
+    powershell_script = fr'''
+    $folderPath = "{folder_path}"
+    $folderSecurity = Get-Acl -Path $folderPath
+    $rule = New-Object System.Security.AccessControl.FileSystemAccessRule("Usuarios", "FullControl", "ContainerInherit, ObjectInherit", "None", "Allow")
+    $folderSecurity.AddAccessRule($rule)
+    Set-Acl -Path $folderPath -AclObject $folderSecurity
+    '''
+
+    
+    result = subprocess.run([powershell_executable, "-ExecutionPolicy", "Bypass", "-Command", powershell_script], capture_output=True, text=True)
+    print(result.stdout)
+        
 
 def StopMonitor(): # THIS IS VERY BAD, DO NOT USE IT IF YOU ARE NOT SURE.
     # Definir constantes
@@ -131,3 +116,4 @@ def ExtractZip(file_path, destination_path):
 
 def MoveFile(source_path, destination_path):
     shutil.move(source_path, destination_path)
+

