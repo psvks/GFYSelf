@@ -128,3 +128,11 @@ def MoveFile(source_path, destination_path):
             print("ERR, could not move the file:", e)
     except Exception as general_error:
         print("Error general:", general_error)
+
+def MakeFolder(path):
+    try:
+        os.makedirs(path, exist_ok=True)
+        return path
+    except Exception as e:
+        print("Error, could not create a folder:", e)
+        return None
