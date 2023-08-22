@@ -10,9 +10,10 @@ from ctypes import c_uint
 from ctypes import c_ulong
 from ctypes import POINTER
 from ctypes import byref
-import urllib.request
+import urllib
 import zipfile
 import shutil
+import psutil
 
 def getDesktopPath():
     home = Path(os.environ['USERPROFILE'])
@@ -136,3 +137,17 @@ def MakeFolder(path):
     except Exception as e:
         print("Error, could not create a folder:", e)
         return None
+    
+def TaskKill(process_name):
+    for process in psutil.process_iter(['pid', 'name']):
+        if process.info['name'] == process_name:
+            pid = process.info['pid']
+            try:
+                psutil.Process(pid).terminate()
+                pass
+            except psutil.NoSuchProcess: # Some error handling.
+                return f"Could not find the process '{process_name}'."
+            except psutil.AccessDenied: # Some error handling.
+                return f"You dont have any permission to terminate '{process_name}'."
+    
+    return f"Could not find the process '{process_name}'."
