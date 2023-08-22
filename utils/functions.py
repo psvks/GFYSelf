@@ -102,7 +102,7 @@ def DownloadFile(url):
 def StartProcess(file_path):
     os.startfile(file_path)
 
-def PowerShellRun(self, cmd):
+def PowerShellRun(cmd):
     completed = subprocess.run(["powershell", "-Command", cmd], capture_output=True)
     return completed
 
