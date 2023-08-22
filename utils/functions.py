@@ -115,5 +115,16 @@ def ExtractZip(file_path, destination_path):
 
 
 def MoveFile(source_path, destination_path):
-    shutil.move(source_path, destination_path)
-
+    try:
+        shutil.move(source_path, destination_path)
+    except shutil.Error as e:
+        if "already exists" in str(e):
+            try:
+                shutil.copy2(source_path, destination_path)
+                shutil.rmtree(source_path)
+            except Exception as copy_error:
+                print("ERR, could not rewrite the file:", copy_error)
+        else:
+            print("ERR, could not move the file:", e)
+    except Exception as general_error:
+        print("Error general:", general_error)
